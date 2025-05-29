@@ -15,8 +15,7 @@ class AJSB_Admin {
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('save_post', array($this, 'save_job_meta'));
         
-        // Add custom post type for jobs
-        add_action('init', array($this, 'register_job_post_type'));
+        // Custom post type is registered in main plugin class
     }
     
     /**
@@ -42,7 +41,13 @@ class AJSB_Admin {
             array($this, 'dashboard_page')
         );
         
-        // Jobs submenu is automatically added by the custom post type registration
+        add_submenu_page(
+            'ajsb-dashboard',
+            __('Jobs', 'ai-job-search-board'),
+            __('Jobs', 'ai-job-search-board'),
+            'manage_options',
+            'edit.php?post_type=ajsb_job'
+        );
         
         add_submenu_page(
             'ajsb-dashboard',
@@ -159,43 +164,6 @@ class AJSB_Admin {
             'ajsb_settings',
             'ajsb_ai_settings'
         );
-    }
-    
-    /**
-     * Register job post type
-     */
-    public function register_job_post_type() {
-        $labels = array(
-            'name' => __('Jobs', 'ai-job-search-board'),
-            'singular_name' => __('Job', 'ai-job-search-board'),
-            'menu_name' => __('Jobs', 'ai-job-search-board'),
-            'add_new' => __('Add New Job', 'ai-job-search-board'),
-            'add_new_item' => __('Add New Job', 'ai-job-search-board'),
-            'edit_item' => __('Edit Job', 'ai-job-search-board'),
-            'new_item' => __('New Job', 'ai-job-search-board'),
-            'view_item' => __('View Job', 'ai-job-search-board'),
-            'search_items' => __('Search Jobs', 'ai-job-search-board'),
-            'not_found' => __('No jobs found', 'ai-job-search-board'),
-            'not_found_in_trash' => __('No jobs found in trash', 'ai-job-search-board')
-        );
-        
-        $args = array(
-            'labels' => $labels,
-            'public' => true,
-            'publicly_queryable' => true,
-            'show_ui' => true,
-            'show_in_menu' => 'ajsb-dashboard', // Show under our custom menu
-            'query_var' => true,
-            'rewrite' => array('slug' => 'job'),
-            'capability_type' => 'post',
-            'has_archive' => true,
-            'hierarchical' => false,
-            'menu_position' => null,
-            'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt'),
-            'show_in_rest' => true
-        );
-        
-        register_post_type('ajsb_job', $args);
     }
     
     /**

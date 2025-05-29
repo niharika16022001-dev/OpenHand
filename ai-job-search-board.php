@@ -115,6 +115,9 @@ class AI_Job_Search_Board {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
         
+        // Register custom post types (must be done on init, not just in admin)
+        add_action('init', array($this, 'register_post_types'));
+        
         // Initialize shortcodes
         new AJSB_Shortcodes();
     }
@@ -245,6 +248,51 @@ class AI_Job_Search_Board {
         
         add_option('ajsb_settings', $default_settings);
         add_option('ajsb_version', AJSB_PLUGIN_VERSION);
+        add_option('ajsb_flush_rewrite_rules', true);
+    }
+    
+    /**
+     * Register custom post types
+     */
+    public function register_post_types() {
+        // Register job post type
+        $labels = array(
+            'name' => __('Jobs', 'ai-job-search-board'),
+            'singular_name' => __('Job', 'ai-job-search-board'),
+            'menu_name' => __('Jobs', 'ai-job-search-board'),
+            'add_new' => __('Add New Job', 'ai-job-search-board'),
+            'add_new_item' => __('Add New Job', 'ai-job-search-board'),
+            'edit_item' => __('Edit Job', 'ai-job-search-board'),
+            'new_item' => __('New Job', 'ai-job-search-board'),
+            'view_item' => __('View Job', 'ai-job-search-board'),
+            'search_items' => __('Search Jobs', 'ai-job-search-board'),
+            'not_found' => __('No jobs found', 'ai-job-search-board'),
+            'not_found_in_trash' => __('No jobs found in trash', 'ai-job-search-board')
+        );
+        
+        $args = array(
+            'labels' => $labels,
+            'public' => true,
+            'publicly_queryable' => true,
+            'show_ui' => true,
+            'show_in_menu' => true, // Show in main menu (will be moved to custom menu by admin class)
+            'query_var' => true,
+            'rewrite' => array('slug' => 'job'),
+            'capability_type' => 'post',
+            'has_archive' => true,
+            'hierarchical' => false,
+            'menu_position' => null,
+            'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt'),
+            'show_in_rest' => true
+        );
+        
+        register_post_type('ajsb_job', $args);
+        
+        // Flush rewrite rules if this is a fresh activation
+        if (get_option('ajsb_flush_rewrite_rules')) {
+            flush_rewrite_rules();
+            delete_option('ajsb_flush_rewrite_rules');
+        }
     }
 }
 
