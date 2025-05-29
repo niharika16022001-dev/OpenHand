@@ -250,8 +250,3 @@ class AI_Job_Search_Board {
 
 // Initialize the plugin
 AI_Job_Search_Board::get_instance();
-
-// Include installation helpers if in admin
-if (is_admin()) {
-    require_once AJSB_PLUGIN_PATH . 'install.php';
-}

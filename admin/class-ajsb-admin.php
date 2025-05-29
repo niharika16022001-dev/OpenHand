@@ -86,6 +86,15 @@ class AJSB_Admin {
             'ajsb-settings',
             array($this, 'settings_page')
         );
+        
+        add_submenu_page(
+            'ajsb-dashboard',
+            __('Installation', 'ai-job-search-board'),
+            __('Installation', 'ai-job-search-board'),
+            'manage_options',
+            'ajsb-installation',
+            array($this, 'installation_page')
+        );
     }
     
     /**
@@ -841,6 +850,161 @@ class AJSB_Admin {
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <?php
+    }
+    
+    /**
+     * Installation page
+     */
+    public function installation_page() {
+        // Include the installer class
+        if (!class_exists('AJSB_Installer')) {
+            require_once AJSB_PLUGIN_PATH . 'install.php';
+        }
+        
+        if (isset($_POST['install_demo_data']) && wp_verify_nonce($_POST['ajsb_demo_nonce'], 'ajsb_demo_data')) {
+            AJSB_Installer::install_demo_data();
+            echo '<div class="notice notice-success"><p>' . __('Demo data installed successfully!', 'ai-job-search-board') . '</p></div>';
+        }
+        
+        if (isset($_POST['remove_demo_data']) && wp_verify_nonce($_POST['ajsb_demo_nonce'], 'ajsb_demo_data')) {
+            AJSB_Installer::remove_demo_data();
+            echo '<div class="notice notice-success"><p>' . __('Demo data removed successfully!', 'ai-job-search-board') . '</p></div>';
+        }
+        
+        $requirements = AJSB_Installer::check_requirements();
+        $status = AJSB_Installer::get_installation_status();
+        
+        ?>
+        <div class="wrap">
+            <h1><?php _e('AI Job Search Board - Installation', 'ai-job-search-board'); ?></h1>
+            
+            <div class="ajsb-installation-grid">
+                <div class="ajsb-installation-card">
+                    <h2><?php _e('System Requirements', 'ai-job-search-board'); ?></h2>
+                    <ul class="ajsb-requirements-list">
+                        <li class="<?php echo $requirements['php_version'] ? 'ajsb-req-pass' : 'ajsb-req-fail'; ?>">
+                            PHP 7.4+ (Current: <?php echo PHP_VERSION; ?>)
+                        </li>
+                        <li class="<?php echo $requirements['wordpress_version'] ? 'ajsb-req-pass' : 'ajsb-req-fail'; ?>">
+                            WordPress 5.0+ (Current: <?php echo get_bloginfo('version'); ?>)
+                        </li>
+                        <li class="<?php echo $requirements['curl_extension'] ? 'ajsb-req-pass' : 'ajsb-req-fail'; ?>">
+                            cURL Extension
+                        </li>
+                        <li class="<?php echo $requirements['json_extension'] ? 'ajsb-req-pass' : 'ajsb-req-fail'; ?>">
+                            JSON Extension
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="ajsb-installation-card">
+                    <h2><?php _e('Installation Status', 'ai-job-search-board'); ?></h2>
+                    <ul class="ajsb-status-list">
+                        <li class="<?php echo $status['tables_created'] ? 'ajsb-status-complete' : 'ajsb-status-pending'; ?>">
+                            Database Tables
+                        </li>
+                        <li class="<?php echo $status['pages_created'] ? 'ajsb-status-complete' : 'ajsb-status-pending'; ?>">
+                            Default Pages
+                        </li>
+                        <li class="<?php echo $status['settings_configured'] ? 'ajsb-status-complete' : 'ajsb-status-pending'; ?>">
+                            Settings Configured
+                        </li>
+                        <li class="<?php echo $status['demo_data_installed'] ? 'ajsb-status-complete' : 'ajsb-status-pending'; ?>">
+                            Demo Data
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="ajsb-installation-card">
+                    <h2><?php _e('Demo Data', 'ai-job-search-board'); ?></h2>
+                    <p><?php _e('Install sample jobs and data to test the plugin functionality.', 'ai-job-search-board'); ?></p>
+                    
+                    <form method="post" style="margin-bottom: 10px;">
+                        <?php wp_nonce_field('ajsb_demo_data', 'ajsb_demo_nonce'); ?>
+                        <input type="submit" name="install_demo_data" class="button button-primary" value="<?php esc_attr_e('Install Demo Data', 'ai-job-search-board'); ?>" />
+                    </form>
+                    
+                    <form method="post">
+                        <?php wp_nonce_field('ajsb_demo_data', 'ajsb_demo_nonce'); ?>
+                        <input type="submit" name="remove_demo_data" class="button button-secondary" value="<?php esc_attr_e('Remove Demo Data', 'ai-job-search-board'); ?>" onclick="return confirm('Are you sure you want to remove all demo data?');" />
+                    </form>
+                </div>
+                
+                <div class="ajsb-installation-card">
+                    <h2><?php _e('Quick Setup', 'ai-job-search-board'); ?></h2>
+                    <ol>
+                        <li><?php _e('Configure AI settings in Settings page', 'ai-job-search-board'); ?></li>
+                        <li><?php _e('Add shortcodes to your pages:', 'ai-job-search-board'); ?></li>
+                    </ol>
+                    
+                    <div class="ajsb-shortcode-examples">
+                        <h4><?php _e('Shortcode Examples:', 'ai-job-search-board'); ?></h4>
+                        <code>[ajsb_job_listings]</code><br>
+                        <code>[ajsb_job_search]</code><br>
+                        <code>[ajsb_user_profile]</code><br>
+                        <code>[ajsb_ai_recommendations]</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+        .ajsb-installation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .ajsb-installation-card {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .ajsb-installation-card h2 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .ajsb-requirements-list,
+        .ajsb-status-list {
+            list-style: none;
+            padding: 0;
+        }
+        .ajsb-requirements-list li,
+        .ajsb-status-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .ajsb-req-pass::before,
+        .ajsb-status-complete::before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+        .ajsb-req-fail::before,
+        .ajsb-status-pending::before {
+            content: "✗ ";
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .ajsb-shortcode-examples {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 3px;
+            margin-top: 15px;
+        }
+        .ajsb-shortcode-examples code {
+            display: block;
+            margin: 5px 0;
+            padding: 5px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        </style>
         <?php
     }
 }
