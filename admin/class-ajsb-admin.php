@@ -42,14 +42,7 @@ class AJSB_Admin {
             array($this, 'dashboard_page')
         );
         
-        add_submenu_page(
-            'ajsb-dashboard',
-            __('Jobs', 'ai-job-search-board'),
-            __('Jobs', 'ai-job-search-board'),
-            'manage_options',
-            'ajsb-jobs',
-            array($this, 'jobs_page')
-        );
+        // Jobs submenu is automatically added by the custom post type registration
         
         add_submenu_page(
             'ajsb-dashboard',
@@ -191,7 +184,7 @@ class AJSB_Admin {
             'public' => true,
             'publicly_queryable' => true,
             'show_ui' => true,
-            'show_in_menu' => false, // We'll add it to our custom menu
+            'show_in_menu' => 'ajsb-dashboard', // Show under our custom menu
             'query_var' => true,
             'rewrite' => array('slug' => 'job'),
             'capability_type' => 'post',
