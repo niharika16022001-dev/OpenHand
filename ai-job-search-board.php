@@ -315,21 +315,15 @@ function ajsb_activation_hook() {
     $plugin = AI_Job_Search_Board::get_instance();
     $plugin->register_post_types();
     
+    // Create/update database tables
+    if (class_exists('AJSB_Database')) {
+        AJSB_Database::create_tables();
+        error_log('AJSB: Database tables created/updated');
+    }
+    
     // Flush rewrite rules
     flush_rewrite_rules();
     
     error_log('AJSB: Plugin activated and rewrite rules flushed');
 }
 
-// Debug function to check post type registration
-add_action('admin_notices', 'ajsb_debug_post_type');
-function ajsb_debug_post_type() {
-    if (current_user_can('manage_options')) {
-        $post_types = get_post_types(array(), 'objects');
-        if (isset($post_types['ajsb_job'])) {
-            echo '<div class="notice notice-success"><p>AJSB Debug: Post type "ajsb_job" is registered successfully!</p></div>';
-        } else {
-            echo '<div class="notice notice-error"><p>AJSB Debug: Post type "ajsb_job" is NOT registered!</p></div>';
-        }
-    }
-}

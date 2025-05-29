@@ -88,6 +88,7 @@ class AJSB_Database {
             desired_salary_min decimal(10,2),
             desired_salary_max decimal(10,2),
             desired_job_type varchar(50),
+            experience_level varchar(50) DEFAULT 'entry',
             remote_preference tinyint(1) DEFAULT 0,
             availability varchar(50) DEFAULT 'immediately',
             ai_profile longtext,
@@ -133,8 +134,26 @@ class AJSB_Database {
         dbDelta($jobs_sql);
         dbDelta($applications_sql);
         dbDelta($profiles_sql);
-        dbDelta($views_table);
+        dbDelta($views_sql);
         dbDelta($recommendations_sql);
+        
+        // Update existing tables if needed
+        self::update_tables();
+    }
+    
+    /**
+     * Update existing tables to add missing columns
+     */
+    public static function update_tables() {
+        global $wpdb;
+        
+        // Check if experience_level column exists in user profiles table
+        $profiles_table = $wpdb->prefix . 'ajsb_user_profiles';
+        $column_exists = $wpdb->get_results("SHOW COLUMNS FROM $profiles_table LIKE 'experience_level'");
+        
+        if (empty($column_exists)) {
+            $wpdb->query("ALTER TABLE $profiles_table ADD COLUMN experience_level varchar(50) DEFAULT 'entry' AFTER desired_job_type");
+        }
     }
     
     /**
