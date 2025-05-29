@@ -50,6 +50,9 @@ class AI_Job_Search_Board {
      * Constructor
      */
     private function __construct() {
+        // Include required files early for activation hooks
+        $this->includes();
+        
         add_action('init', array($this, 'init'));
         register_activation_hook(__FILE__, array($this, 'activate'));
         register_deactivation_hook(__FILE__, array($this, 'deactivate'));
@@ -62,9 +65,6 @@ class AI_Job_Search_Board {
     public function init() {
         // Load text domain
         load_plugin_textdomain('ai-job-search-board', false, dirname(AJSB_PLUGIN_BASENAME) . '/languages');
-        
-        // Include required files
-        $this->includes();
         
         // Initialize components
         $this->init_hooks();
@@ -88,15 +88,24 @@ class AI_Job_Search_Board {
      * Include required files
      */
     private function includes() {
-        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-database.php';
-        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-job.php';
-        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-application.php';
-        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-user-profile.php';
-        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-ai-engine.php';
-        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-ajax.php';
-        require_once AJSB_PLUGIN_PATH . 'admin/class-ajsb-admin.php';
-        require_once AJSB_PLUGIN_PATH . 'public/class-ajsb-frontend.php';
-        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-shortcodes.php';
+        $files = array(
+            'includes/class-ajsb-database.php',
+            'includes/class-ajsb-job.php',
+            'includes/class-ajsb-application.php',
+            'includes/class-ajsb-user-profile.php',
+            'includes/class-ajsb-ai-engine.php',
+            'includes/class-ajsb-ajax.php',
+            'admin/class-ajsb-admin.php',
+            'public/class-ajsb-frontend.php',
+            'includes/class-ajsb-shortcodes.php'
+        );
+        
+        foreach ($files as $file) {
+            $file_path = AJSB_PLUGIN_PATH . $file;
+            if (file_exists($file_path)) {
+                require_once $file_path;
+            }
+        }
     }
     
     /**
@@ -173,6 +182,9 @@ class AI_Job_Search_Board {
      * Plugin uninstall
      */
     public static function uninstall() {
+        // Include database class for uninstall
+        require_once AJSB_PLUGIN_PATH . 'includes/class-ajsb-database.php';
+        
         // Remove database tables
         AJSB_Database::drop_tables();
         
@@ -238,3 +250,8 @@ class AI_Job_Search_Board {
 
 // Initialize the plugin
 AI_Job_Search_Board::get_instance();
+
+// Include installation helpers if in admin
+if (is_admin()) {
+    require_once AJSB_PLUGIN_PATH . 'install.php';
+}
