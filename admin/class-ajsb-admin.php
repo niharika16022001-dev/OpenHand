@@ -11,6 +11,7 @@ class AJSB_Admin {
     
     public function __construct() {
         add_action('admin_menu', array($this, 'add_admin_menu'));
+        add_action('admin_menu', array($this, 'fix_menu_order'), 999);
         add_action('admin_init', array($this, 'admin_init'));
         add_action('add_meta_boxes', array($this, 'add_meta_boxes'));
         add_action('save_post', array($this, 'save_job_meta'));
@@ -41,13 +42,7 @@ class AJSB_Admin {
             array($this, 'dashboard_page')
         );
         
-        add_submenu_page(
-            'ajsb-dashboard',
-            __('Jobs', 'ai-job-search-board'),
-            __('Jobs', 'ai-job-search-board'),
-            'manage_options',
-            'edit.php?post_type=ajsb_job'
-        );
+
         
         add_submenu_page(
             'ajsb-dashboard',
@@ -93,6 +88,30 @@ class AJSB_Admin {
             'ajsb-installation',
             array($this, 'installation_page')
         );
+    }
+    
+    /**
+     * Fix menu order to ensure Jobs appears after Dashboard
+     */
+    public function fix_menu_order() {
+        global $submenu;
+        
+        if (isset($submenu['ajsb-dashboard'])) {
+            // Ensure Jobs submenu appears in the right position
+            $jobs_item = null;
+            foreach ($submenu['ajsb-dashboard'] as $key => $item) {
+                if (strpos($item[2], 'post_type=ajsb_job') !== false) {
+                    $jobs_item = $item;
+                    unset($submenu['ajsb-dashboard'][$key]);
+                    break;
+                }
+            }
+            
+            if ($jobs_item) {
+                // Insert Jobs after Dashboard (position 1)
+                array_splice($submenu['ajsb-dashboard'], 1, 0, array($jobs_item));
+            }
+        }
     }
     
     /**

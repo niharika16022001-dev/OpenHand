@@ -275,7 +275,7 @@ class AI_Job_Search_Board {
             'public' => true,
             'publicly_queryable' => true,
             'show_ui' => true,
-            'show_in_menu' => true,
+            'show_in_menu' => 'ajsb-dashboard',
             'query_var' => true,
             'rewrite' => array('slug' => 'job'),
             'capability_type' => 'post',
