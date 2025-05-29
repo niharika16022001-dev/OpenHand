@@ -115,8 +115,8 @@ class AI_Job_Search_Board {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
         
-        // Register custom post types (must be done on init, not just in admin)
-        add_action('init', array($this, 'register_post_types'));
+        // Register custom post types early on init with high priority
+        add_action('init', array($this, 'register_post_types'), 5);
         
         // Initialize shortcodes
         new AJSB_Shortcodes();
@@ -257,17 +257,17 @@ class AI_Job_Search_Board {
     public function register_post_types() {
         // Register job post type
         $labels = array(
-            'name' => __('Jobs', 'ai-job-search-board'),
-            'singular_name' => __('Job', 'ai-job-search-board'),
-            'menu_name' => __('Jobs', 'ai-job-search-board'),
-            'add_new' => __('Add New Job', 'ai-job-search-board'),
-            'add_new_item' => __('Add New Job', 'ai-job-search-board'),
-            'edit_item' => __('Edit Job', 'ai-job-search-board'),
-            'new_item' => __('New Job', 'ai-job-search-board'),
-            'view_item' => __('View Job', 'ai-job-search-board'),
-            'search_items' => __('Search Jobs', 'ai-job-search-board'),
-            'not_found' => __('No jobs found', 'ai-job-search-board'),
-            'not_found_in_trash' => __('No jobs found in trash', 'ai-job-search-board')
+            'name' => 'Jobs',
+            'singular_name' => 'Job',
+            'menu_name' => 'Jobs',
+            'add_new' => 'Add New Job',
+            'add_new_item' => 'Add New Job',
+            'edit_item' => 'Edit Job',
+            'new_item' => 'New Job',
+            'view_item' => 'View Job',
+            'search_items' => 'Search Jobs',
+            'not_found' => 'No jobs found',
+            'not_found_in_trash' => 'No jobs found in trash'
         );
         
         $args = array(
@@ -275,26 +275,61 @@ class AI_Job_Search_Board {
             'public' => true,
             'publicly_queryable' => true,
             'show_ui' => true,
-            'show_in_menu' => true, // Show in main menu (will be moved to custom menu by admin class)
+            'show_in_menu' => true,
             'query_var' => true,
             'rewrite' => array('slug' => 'job'),
             'capability_type' => 'post',
             'has_archive' => true,
             'hierarchical' => false,
-            'menu_position' => null,
+            'menu_position' => 25,
             'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt'),
-            'show_in_rest' => true
+            'show_in_rest' => true,
+            'menu_icon' => 'dashicons-businessman'
         );
         
-        register_post_type('ajsb_job', $args);
+        $result = register_post_type('ajsb_job', $args);
+        
+        // Debug: Log if registration failed
+        if (is_wp_error($result)) {
+            error_log('AJSB: Failed to register post type: ' . $result->get_error_message());
+        } else {
+            error_log('AJSB: Successfully registered ajsb_job post type');
+        }
         
         // Flush rewrite rules if this is a fresh activation
         if (get_option('ajsb_flush_rewrite_rules')) {
             flush_rewrite_rules();
             delete_option('ajsb_flush_rewrite_rules');
+            error_log('AJSB: Flushed rewrite rules');
         }
     }
 }
 
 // Initialize the plugin
 AI_Job_Search_Board::get_instance();
+
+// Activation hook to flush rewrite rules
+register_activation_hook(__FILE__, 'ajsb_activation_hook');
+function ajsb_activation_hook() {
+    // Trigger post type registration
+    $plugin = AI_Job_Search_Board::get_instance();
+    $plugin->register_post_types();
+    
+    // Flush rewrite rules
+    flush_rewrite_rules();
+    
+    error_log('AJSB: Plugin activated and rewrite rules flushed');
+}
+
+// Debug function to check post type registration
+add_action('admin_notices', 'ajsb_debug_post_type');
+function ajsb_debug_post_type() {
+    if (current_user_can('manage_options')) {
+        $post_types = get_post_types(array(), 'objects');
+        if (isset($post_types['ajsb_job'])) {
+            echo '<div class="notice notice-success"><p>AJSB Debug: Post type "ajsb_job" is registered successfully!</p></div>';
+        } else {
+            echo '<div class="notice notice-error"><p>AJSB Debug: Post type "ajsb_job" is NOT registered!</p></div>';
+        }
+    }
+}
