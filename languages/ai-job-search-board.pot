@@ -1,0 +1,648 @@
+# AI Job Search Board - Translation Template
+# Copyright (C) 2024 OpenHand Team
+# This file is distributed under the same license as the AI Job Search Board plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: AI Job Search Board 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/niharika16022001-dev/OpenHand\n"
+"POT-Creation-Date: 2024-05-29 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ai-job-search-board.php:45
+msgid "Jobs"
+msgstr ""
+
+#: ai-job-search-board.php:50
+msgid "Job Search"
+msgstr ""
+
+#: ai-job-search-board.php:55
+msgid "My Profile"
+msgstr ""
+
+#: ai-job-search-board.php:60
+msgid "My Applications"
+msgstr ""
+
+#: includes/class-ajsb-job.php:234
+msgid "Full Time"
+msgstr ""
+
+#: includes/class-ajsb-job.php:235
+msgid "Part Time"
+msgstr ""
+
+#: includes/class-ajsb-job.php:236
+msgid "Contract"
+msgstr ""
+
+#: includes/class-ajsb-job.php:237
+msgid "Freelance"
+msgstr ""
+
+#: includes/class-ajsb-job.php:238
+msgid "Internship"
+msgstr ""
+
+#: includes/class-ajsb-job.php:239
+msgid "Temporary"
+msgstr ""
+
+#: includes/class-ajsb-job.php:248
+msgid "Entry Level"
+msgstr ""
+
+#: includes/class-ajsb-job.php:249
+msgid "Junior"
+msgstr ""
+
+#: includes/class-ajsb-job.php:250
+msgid "Mid Level"
+msgstr ""
+
+#: includes/class-ajsb-job.php:251
+msgid "Senior"
+msgstr ""
+
+#: includes/class-ajsb-job.php:252
+msgid "Lead"
+msgstr ""
+
+#: includes/class-ajsb-job.php:253
+msgid "Executive"
+msgstr ""
+
+#: includes/class-ajsb-application.php:35
+msgid "You have already applied for this job."
+msgstr ""
+
+#: includes/class-ajsb-application.php:265
+msgid "New Application for %s"
+msgstr ""
+
+#: includes/class-ajsb-application.php:266
+msgid "You have received a new application for the job \"%s\" from %s."
+msgstr ""
+
+#: includes/class-ajsb-application.php:274
+msgid "Application Submitted for %s"
+msgstr ""
+
+#: includes/class-ajsb-application.php:275
+msgid "Your application for \"%s\" at %s has been submitted successfully."
+msgstr ""
+
+#: includes/class-ajsb-application.php:295
+msgid "Pending Review"
+msgstr ""
+
+#: includes/class-ajsb-application.php:296
+msgid "Under Review"
+msgstr ""
+
+#: includes/class-ajsb-application.php:297
+msgid "Shortlisted"
+msgstr ""
+
+#: includes/class-ajsb-application.php:298
+msgid "Interview Scheduled"
+msgstr ""
+
+#: includes/class-ajsb-application.php:299
+msgid "Accepted"
+msgstr ""
+
+#: includes/class-ajsb-application.php:300
+msgid "Rejected"
+msgstr ""
+
+#: includes/class-ajsb-application.php:308
+msgid "Application Status Update: %s"
+msgstr ""
+
+#: includes/class-ajsb-application.php:309
+msgid "Your application status for \"%s\" at %s has been updated to: %s"
+msgstr ""
+
+#: includes/class-ajsb-user-profile.php:234
+msgid "Immediately"
+msgstr ""
+
+#: includes/class-ajsb-user-profile.php:235
+msgid "2 Weeks Notice"
+msgstr ""
+
+#: includes/class-ajsb-user-profile.php:236
+msgid "1 Month Notice"
+msgstr ""
+
+#: includes/class-ajsb-user-profile.php:237
+msgid "2 Months Notice"
+msgstr ""
+
+#: includes/class-ajsb-user-profile.php:238
+msgid "3+ Months"
+msgstr ""
+
+#: includes/class-ajsb-user-profile.php:239
+msgid "Not Currently Looking"
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:45
+msgid "No jobs found matching your criteria."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:58
+msgid "You must be logged in to apply for jobs."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:63
+msgid "Invalid job ID."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:69
+msgid "Job not found or no longer active."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:84
+msgid "Application submitted successfully!"
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:86
+msgid "Failed to submit application. Please try again."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:96
+msgid "You must be logged in to save your profile."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:130
+msgid "Profile saved successfully!"
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:132
+msgid "Failed to save profile. Please try again."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:142
+msgid "You must be logged in to get recommendations."
+msgstr ""
+
+#: includes/class-ajsb-ajax.php:155
+msgid "No recommendations available. Please complete your profile to get personalized job recommendations."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:65
+msgid "Please log in to view your profile."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:75
+msgid "My Profile"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:79
+msgid "Personal Information"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:82
+msgid "First Name"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:86
+msgid "Last Name"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:92
+msgid "Email"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:94
+msgid "Email cannot be changed here"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:98
+msgid "Phone"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:103
+msgid "Location"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:104
+msgid "City, State/Country"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:108
+msgid "Bio"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:109
+msgid "Tell us about yourself..."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:114
+msgid "Professional Information"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:117
+msgid "Skills"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:118
+msgid "PHP, JavaScript, React, etc. (comma-separated)"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:122
+msgid "Experience Level"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:123
+msgid "Select Experience Level"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:132
+msgid "Desired Job Type"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:133
+msgid "Select Job Type"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:143
+msgid "Work Experience"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:144
+msgid "Describe your work experience..."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:148
+msgid "Education"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:149
+msgid "Your educational background..."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:154
+msgid "Job Preferences"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:157
+msgid "Desired Salary Range"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:160
+msgid "Min"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:162
+msgid "Max"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:167
+msgid "Availability"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:178
+msgid "Open to remote work"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:184
+msgid "Links"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:187
+msgid "Resume URL"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:188
+msgid "https://example.com/resume.pdf"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:192
+msgid "Portfolio URL"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:193
+msgid "https://yourportfolio.com"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:198
+msgid "LinkedIn URL"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:199
+msgid "https://linkedin.com/in/yourprofile"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:203
+msgid "GitHub URL"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:204
+msgid "https://github.com/yourusername"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:210
+msgid "Save Profile"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:221
+msgid "Please log in to view your applications."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:230
+msgid "My Applications"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:234
+msgid "You haven't applied for any jobs yet."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:235
+msgid "Browse Jobs"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:260
+msgid "Applied %s ago"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:275
+msgid "Match"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:282
+msgid "Cover Letter:"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:294
+msgid "Please log in to view AI recommendations."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:306
+msgid "AI Job Recommendations"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:310
+msgid "No recommendations available. Please complete your profile to get personalized job recommendations."
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:311
+msgid "Complete Profile"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:334
+msgid "Why this matches:"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:342
+msgid "Apply Now"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:345
+msgid "View Details"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:353
+msgid "Refresh Recommendations"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:370
+msgid "Total Jobs"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:376
+msgid "Active Jobs"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:382
+msgid "Total Applications"
+msgstr ""
+
+#: includes/class-ajsb-shortcodes.php:388
+msgid "Registered Candidates"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:35
+msgid "AI Job Board"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:44
+msgid "Dashboard"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:53
+msgid "Applications"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:62
+msgid "Candidates"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:71
+msgid "Analytics"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:80
+msgid "Settings"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:95
+msgid "General Settings"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:102
+msgid "Jobs per Page"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:109
+msgid "Require Registration to Apply"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:116
+msgid "Email Notifications"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:124
+msgid "AI Settings"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:131
+msgid "Enable AI Matching"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:138
+msgid "AI Provider"
+msgstr ""
+
+#: admin/class-ajsb-admin.php:145
+msgid "AI API Key"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:234
+msgid "Remote"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:248
+msgid "Job Type:"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:253
+msgid "Experience Level:"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:259
+msgid "Salary:"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:265
+msgid "Posted:"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:266
+msgid "ago"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:272
+msgid "Required Skills"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:295
+msgid "Your Application"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:297
+msgid "You applied for this job on"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:301
+msgid "Status:"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:310
+msgid "AI Match Score:"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:330
+msgid "Apply for this Job"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:340
+msgid "AI Match Score"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:341
+msgid "Based on your profile, this job is a good match for your skills and preferences."
+msgstr ""
+
+#: public/class-ajsb-frontend.php:347
+msgid "Please log in to apply for this job."
+msgstr ""
+
+#: public/class-ajsb-frontend.php:349
+msgid "Log In"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:352
+msgid "Register"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:361
+msgid "Requirements"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:370
+msgid "Benefits"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:388
+msgid "Apply for Job"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:394
+msgid "Cover Letter"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:395
+msgid "Tell us why you're interested in this position..."
+msgstr ""
+
+#: public/class-ajsb-frontend.php:399
+msgid "Resume URL"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:400
+msgid "https://example.com/resume.pdf"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:401
+msgid "Link to your online resume or portfolio"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:405
+msgid "Submit Application"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:408
+msgid "Cancel"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:430
+msgid "Job title, keywords, or company"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:434
+msgid "Location"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:438
+msgid "Search Jobs"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:444
+msgid "All Job Types"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:452
+msgid "All Experience Levels"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:461
+msgid "Remote Work"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:488
+msgid "Loading jobs..."
+msgstr ""
+
+#: public/class-ajsb-frontend.php:500
+msgid "No jobs found."
+msgstr ""
+
+#: public/class-ajsb-frontend.php:548
+msgid "Featured"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:590
+msgid "Posted %s ago"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:595
+msgid "Applied"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:597
+msgid "Apply"
+msgstr ""
+
+#: public/class-ajsb-frontend.php:601
+msgid "View Details"
+msgstr ""

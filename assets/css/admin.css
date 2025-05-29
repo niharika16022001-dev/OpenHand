@@ -1,0 +1,661 @@
+/* AI Job Search Board - Admin Styles */
+
+/* Dashboard Stats */
+.ajsb-dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.ajsb-stat-card {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.ajsb-stat-card h3 {
+    font-size: 2em;
+    margin: 0;
+    color: #0073aa;
+    font-weight: 600;
+}
+
+.ajsb-stat-card p {
+    margin: 10px 0 0;
+    color: #666;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Dashboard Content */
+.ajsb-dashboard-content {
+    margin-top: 30px;
+}
+
+.ajsb-recent-activity {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ajsb-recent-activity h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.ajsb-recent-activity ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ajsb-recent-activity li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: #666;
+}
+
+.ajsb-recent-activity li:last-child {
+    border-bottom: none;
+}
+
+/* Job Management */
+.ajsb-job-meta-box {
+    background: #fff;
+}
+
+.ajsb-job-meta-box .form-table th {
+    width: 150px;
+    font-weight: 600;
+}
+
+.ajsb-job-meta-box .form-table td {
+    padding: 15px 10px;
+}
+
+.ajsb-job-meta-box input[type="text"],
+.ajsb-job-meta-box input[type="number"],
+.ajsb-job-meta-box input[type="date"],
+.ajsb-job-meta-box select,
+.ajsb-job-meta-box textarea {
+    width: 100%;
+    max-width: 400px;
+}
+
+.ajsb-job-meta-box textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.ajsb-job-meta-box .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Applications Management */
+.ajsb-applications-list {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ajsb-applications-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ajsb-applications-list th,
+.ajsb-applications-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.ajsb-applications-list th {
+    background: #f9f9f9;
+    font-weight: 600;
+    color: #333;
+}
+
+.ajsb-applications-list tr:hover {
+    background: #f9f9f9;
+}
+
+.ajsb-status-select {
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.ajsb-view-application {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 3px;
+    background: #0073aa;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ajsb-view-application:hover {
+    background: #005a87;
+}
+
+/* Candidates Management */
+.ajsb-candidates-list {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ajsb-candidates-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ajsb-candidates-list th,
+.ajsb-candidates-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.ajsb-candidates-list th {
+    background: #f9f9f9;
+    font-weight: 600;
+    color: #333;
+}
+
+.ajsb-candidates-list tr:hover {
+    background: #f9f9f9;
+}
+
+/* Analytics */
+.ajsb-analytics-content {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ajsb-analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.ajsb-analytics-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.ajsb-analytics-card h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.ajsb-chart-container {
+    height: 300px;
+    margin-top: 15px;
+}
+
+/* Settings */
+.ajsb-settings-section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.ajsb-settings-section h2 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.ajsb-settings-section .form-table th {
+    width: 200px;
+    font-weight: 600;
+}
+
+.ajsb-settings-section .form-table td {
+    padding: 15px 10px;
+}
+
+.ajsb-settings-section input[type="text"],
+.ajsb-settings-section input[type="number"],
+.ajsb-settings-section input[type="password"],
+.ajsb-settings-section select {
+    width: 100%;
+    max-width: 400px;
+}
+
+.ajsb-settings-section .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Loading States */
+.ajsb-loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.ajsb-loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: ajsb-admin-spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes ajsb-admin-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Status Indicators */
+.ajsb-status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.ajsb-status-active {
+    background: #28a745;
+}
+
+.ajsb-status-inactive {
+    background: #dc3545;
+}
+
+.ajsb-status-pending {
+    background: #ffc107;
+}
+
+.ajsb-status-draft {
+    background: #6c757d;
+}
+
+/* Action Buttons */
+.ajsb-action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.ajsb-action-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.ajsb-action-btn-edit {
+    background: #0073aa;
+    color: #fff;
+}
+
+.ajsb-action-btn-edit:hover {
+    background: #005a87;
+    color: #fff;
+}
+
+.ajsb-action-btn-delete {
+    background: #dc3545;
+    color: #fff;
+}
+
+.ajsb-action-btn-delete:hover {
+    background: #c82333;
+    color: #fff;
+}
+
+.ajsb-action-btn-view {
+    background: #28a745;
+    color: #fff;
+}
+
+.ajsb-action-btn-view:hover {
+    background: #218838;
+    color: #fff;
+}
+
+/* Filters */
+.ajsb-filters {
+    background: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.ajsb-filters-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+.ajsb-filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.ajsb-filter-group select,
+.ajsb-filter-group input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.ajsb-filter-btn {
+    padding: 8px 15px;
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.ajsb-filter-btn:hover {
+    background: #005a87;
+}
+
+/* Pagination */
+.ajsb-pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.ajsb-pagination a,
+.ajsb-pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #333;
+}
+
+.ajsb-pagination a:hover {
+    background: #f5f5f5;
+}
+
+.ajsb-pagination .current {
+    background: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+}
+
+/* Notices */
+.ajsb-notice {
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-left: 4px solid;
+    border-radius: 3px;
+}
+
+.ajsb-notice-success {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.ajsb-notice-error {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.ajsb-notice-warning {
+    background: #fff3cd;
+    border-color: #ffc107;
+    color: #856404;
+}
+
+.ajsb-notice-info {
+    background: #d1ecf1;
+    border-color: #17a2b8;
+    color: #0c5460;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .ajsb-dashboard-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .ajsb-filters-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .ajsb-action-buttons {
+        flex-direction: column;
+    }
+    
+    .ajsb-applications-list,
+    .ajsb-candidates-list {
+        overflow-x: auto;
+    }
+    
+    .ajsb-applications-list table,
+    .ajsb-candidates-list table {
+        min-width: 600px;
+    }
+}
+
+/* WordPress Admin Integration */
+.toplevel_page_ajsb-dashboard .wp-menu-image:before {
+    content: '\f110';
+}
+
+.ajsb-admin-page {
+    margin: 20px 20px 0 2px;
+}
+
+.ajsb-admin-page .wrap {
+    margin: 0;
+}
+
+.ajsb-admin-page h1 {
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    padding: 9px 0 4px 0;
+    line-height: 1.3;
+}
+
+/* Custom Post Type Styling */
+.post-type-ajsb_job .wp-list-table .column-title {
+    width: 25%;
+}
+
+.post-type-ajsb_job .wp-list-table .column-company {
+    width: 15%;
+}
+
+.post-type-ajsb_job .wp-list-table .column-location {
+    width: 15%;
+}
+
+.post-type-ajsb_job .wp-list-table .column-job_type {
+    width: 10%;
+}
+
+.post-type-ajsb_job .wp-list-table .column-applications {
+    width: 10%;
+}
+
+.post-type-ajsb_job .wp-list-table .column-date {
+    width: 10%;
+}
+
+/* Meta Box Styling */
+#ajsb_job_details .inside {
+    margin: 0;
+    padding: 0;
+}
+
+#ajsb_job_details .form-table {
+    margin: 0;
+}
+
+#ajsb_job_details .form-table th {
+    padding: 20px 10px 20px 0;
+    width: 150px;
+}
+
+#ajsb_job_details .form-table td {
+    padding: 15px 10px;
+}
+
+/* Help Text */
+.ajsb-help {
+    background: #f0f8ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.ajsb-help h4 {
+    margin-top: 0;
+    color: #0073aa;
+}
+
+.ajsb-help p {
+    margin-bottom: 0;
+    color: #333;
+}
+
+/* Tooltips */
+.ajsb-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.ajsb-tooltip .ajsb-tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.ajsb-tooltip:hover .ajsb-tooltiptext {
+    visibility: visible;
+}
+
+/* Export/Import */
+.ajsb-export-import {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.ajsb-export-import h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.ajsb-export-btn,
+.ajsb-import-btn {
+    padding: 10px 15px;
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.ajsb-export-btn:hover,
+.ajsb-import-btn:hover {
+    background: #005a87;
+}
+
+/* Quick Stats Widget */
+.ajsb-quick-stats {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.ajsb-quick-stats h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.ajsb-quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.ajsb-quick-stat {
+    text-align: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 3px;
+}
+
+.ajsb-quick-stat-number {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0073aa;
+    display: block;
+}
+
+.ajsb-quick-stat-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
